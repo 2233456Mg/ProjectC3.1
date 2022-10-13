@@ -1,6 +1,6 @@
 package com.ciclo3.projectc3.Controller;
 
-import com.ciclo3.projectc3.Model.Reservation;
+import com.ciclo3.projectc3.Entities.Reservation;
 import com.ciclo3.projectc3.Service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +26,7 @@ public class ReservationController {
     }
 
     @PostMapping("/save")
-    @ResponseStatus(HttpStatus.ACCEPTED.CREATED)
+    @ResponseStatus(HttpStatus.CREATED)
     public Reservation save (@RequestBody Reservation reservation){
         return reservationService.save(reservation);
     }

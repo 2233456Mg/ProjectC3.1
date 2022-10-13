@@ -1,6 +1,6 @@
 package com.ciclo3.projectc3.Service;
 
-import com.ciclo3.projectc3.Model.Message;
+import com.ciclo3.projectc3.Entities.Message;
 import com.ciclo3.projectc3.Repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public class MessageService {
             return messageRepository.save(message);
         } else {
             Optional<Message> message1 = messageRepository.getMessage(message.getIdMessage());
-            if(message1.isEmpty()){
+            if(message1.isPresent()){
                 return messageRepository.save(message);
             } else {
                 return message;

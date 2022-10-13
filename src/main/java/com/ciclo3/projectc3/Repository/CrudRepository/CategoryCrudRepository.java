@@ -1,6 +1,6 @@
 package com.ciclo3.projectc3.Repository.CrudRepository;
 
-import com.ciclo3.projectc3.Model.Category;
+import com.ciclo3.projectc3.Entities.Category;
 import org.springframework.data.repository.CrudRepository;
 
 

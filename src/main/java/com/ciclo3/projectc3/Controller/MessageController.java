@@ -1,6 +1,6 @@
 package com.ciclo3.projectc3.Controller;
 
-import com.ciclo3.projectc3.Model.Message;
+import com.ciclo3.projectc3.Entities.Message;
 import com.ciclo3.projectc3.Service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,7 +27,7 @@ public class MessageController {
     }
 
     @PostMapping("/save")
-    @ResponseStatus(HttpStatus.ACCEPTED.CREATED)
+    @ResponseStatus(HttpStatus.CREATED)
     public Message save (@RequestBody Message message){
         return messageService.save(message);
     }

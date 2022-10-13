@@ -1,7 +1,7 @@
 package com.ciclo3.projectc3.Controller;
 
 
-import com.ciclo3.projectc3.Model.Category;
+import com.ciclo3.projectc3.Entities.Category;
 import com.ciclo3.projectc3.Service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/api/Category")
 
 public class CategoryController {
 
@@ -30,6 +30,7 @@ public class CategoryController {
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
+    // @ResponseStatus(HttpStatus.CREATED)
     public Category save (@RequestBody Category category){
         return categoryService.save(category);
     }

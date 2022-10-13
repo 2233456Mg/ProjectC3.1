@@ -1,6 +1,6 @@
 package com.ciclo3.projectc3.Repository;
 
-import com.ciclo3.projectc3.Model.Client;
+import com.ciclo3.projectc3.Entities.Client;
 import com.ciclo3.projectc3.Repository.CrudRepository.ClientCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,17 +12,21 @@ import java.util.Optional;
 public class ClientRepository {
 
     @Autowired
-    private ClientCrudRepository extencionesCrud;
+    private ClientCrudRepository clientCrudRepository;
 
     public List<Client> getAll(){
-        return (List<Client>) extencionesCrud.findAll();
+        return (List<Client>) clientCrudRepository.findAll();
     }
 
     public Optional<Client> getClient(int id){
-        return extencionesCrud.findById(id);
+        return clientCrudRepository.findById(id);
     }
 
     public Client save(Client client){
-        return extencionesCrud.save(client);
+        return clientCrudRepository.save(client);
+    }
+
+    public void delete(Client client) {
+        clientCrudRepository.delete(client);
     }
 }

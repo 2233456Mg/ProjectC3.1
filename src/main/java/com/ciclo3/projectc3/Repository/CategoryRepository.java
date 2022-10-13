@@ -1,6 +1,6 @@
 package com.ciclo3.projectc3.Repository;
 
-import com.ciclo3.projectc3.Model.Category;
+import com.ciclo3.projectc3.Entities.Category;
 import com.ciclo3.projectc3.Repository.CrudRepository.CategoryCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,17 +11,21 @@ import java.util.Optional;
 @Repository
 public class CategoryRepository {
     @Autowired
-    private CategoryCrudRepository extencionesCrud;
+    private CategoryCrudRepository categoryCrudRepository;
 
     public List<Category> getAll(){
-        return (List<Category>) extencionesCrud.findAll();
+        return (List<Category>) categoryCrudRepository.findAll();
     }
 
     public Optional<Category> getCategory(int id){
-        return extencionesCrud.findById(id);
+        return categoryCrudRepository.findById(id);
     }
 
     public Category save(Category category){
-        return extencionesCrud.save(category);
+        return categoryCrudRepository.save(category);
+    }
+
+    public void delete(Category category) {
+        categoryCrudRepository.delete(category);
     }
 }

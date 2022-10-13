@@ -1,6 +1,6 @@
 package com.ciclo3.projectc3.Repository;
 
-import com.ciclo3.projectc3.Model.Message;
+import com.ciclo3.projectc3.Entities.Message;
 import com.ciclo3.projectc3.Repository.CrudRepository.MessageCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,17 +12,21 @@ import java.util.Optional;
 public class MessageRepository {
 
     @Autowired
-    private MessageCrudRepository extencionesCrud;
+    private MessageCrudRepository messageCrudRepository;
 
     public List<Message> getAll(){
-        return (List<Message>) extencionesCrud.findAll();
+        return (List<Message>) messageCrudRepository.findAll();
     }
 
     public Optional<Message> getMessage(int id){
-        return extencionesCrud.findById(id);
+        return messageCrudRepository.findById(id);
     }
 
     public Message save(Message message){
-        return extencionesCrud.save(message);
+        return messageCrudRepository.save(message);
+    }
+
+    public void delete(Message message) {
+        messageCrudRepository.delete(message);
     }
 }

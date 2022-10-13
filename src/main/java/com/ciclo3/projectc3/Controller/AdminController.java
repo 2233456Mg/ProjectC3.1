@@ -1,6 +1,6 @@
 package com.ciclo3.projectc3.Controller;
 
-import com.ciclo3.projectc3.Model.Admin;
+import com.ciclo3.projectc3.Entities.Admin;
 import com.ciclo3.projectc3.Service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/api/Admin")
 public class AdminController {
     @Autowired
     private AdminService adminService;

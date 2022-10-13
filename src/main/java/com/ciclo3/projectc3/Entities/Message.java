@@ -1,12 +1,13 @@
-package com.ciclo3.projectc3.Model;
+package com.ciclo3.projectc3.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "message")
-public class Message {
+public class Message implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,13 +16,13 @@ public class Message {
 
     @ManyToOne
     @JoinColumn(name = "machineId")
-    @JsonIgnoreProperties({"messages","reservations"})
+    @JsonIgnoreProperties({"messages","reservation"})
     private Machine machine;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties({"messages","reservations"})
-    private Client client;
+    @JsonIgnoreProperties({"messages","reservation"})
+    private Client clients;
 
     public Integer getIdMessage() {
         return idMessage;
@@ -39,19 +40,19 @@ public class Message {
         this.messageText = messageText;
     }
 
-    public Machine getMachine() {
+    public Machine getMachines() {
         return machine;
     }
 
-    public void setMachine(Machine machine) {
-        this.machine = machine;
+    public void setMachines(Machine machines) {
+        this.machine = machines;
     }
 
-    public Client getClient() {
-        return client;
+    public Client getClients() {
+        return clients;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClients(Client clients) {
+        this.clients = clients;
     }
 }

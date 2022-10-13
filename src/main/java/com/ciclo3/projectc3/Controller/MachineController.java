@@ -1,7 +1,8 @@
 package com.ciclo3.projectc3.Controller;
 
-import com.ciclo3.projectc3.Model.Client;
-import com.ciclo3.projectc3.Service.ClientService;
+import com.ciclo3.projectc3.Entities.Machine;
+import com.ciclo3.projectc3.Service.MachineService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,25 +11,25 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/Client")
+@RequestMapping("/api/Machine")
 public class MachineController {
 
     @Autowired
-    private ClientService clientService;
+    private MachineService machineService;
 
     @GetMapping("/all")
-    public List<Client> getAll(){
-        return clientService.getAll();
+    public List<Machine> getAll(){
+        return machineService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Client> getClient(@PathVariable("id") int id){
-        return clientService.getClient(id);
+    public Optional<Machine> getMachine(@PathVariable("id") int id){
+        return machineService.getMachine(id);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Client save (@RequestBody Client client){
-        return clientService.save(client);
+    public Machine save (@RequestBody Machine machine){
+        return machineService.save(machine);
     }
 }

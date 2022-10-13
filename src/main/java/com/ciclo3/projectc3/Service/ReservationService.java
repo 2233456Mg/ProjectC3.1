@@ -1,6 +1,6 @@
 package com.ciclo3.projectc3.Service;
 
-import com.ciclo3.projectc3.Model.Reservation;
+import com.ciclo3.projectc3.Entities.Reservation;
 import com.ciclo3.projectc3.Repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,11 +23,11 @@ public class ReservationService {
     }
 
     public Reservation save (Reservation reservation){
-        if (reservation.getIdReservation() == null){
+        if (reservation.getId() == null){
             return reservationRepository.save(reservation);
         } else {
-            Optional<Reservation> reservation1 = reservationRepository.getReservation(reservation.getIdReservation());
-            if(reservation1.isEmpty()){
+            Optional<Reservation> reservation1 = reservationRepository.getReservation(reservation.getId());
+            if(reservation1.isPresent()){
                 return reservationRepository.save(reservation);
             } else {
                 return reservation;

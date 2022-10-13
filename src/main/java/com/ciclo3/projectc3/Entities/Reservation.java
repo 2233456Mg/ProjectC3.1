@@ -1,17 +1,18 @@
-package com.ciclo3.projectc3.Model;
+package com.ciclo3.projectc3.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "reservation")
-public class Reservation {
+public class Reservation implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idReservation;
+    private Integer id;
     private Date startDate;
     private Date devolutionDate;
     private String status = "created";
@@ -24,14 +25,15 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "clientId")
     @JsonIgnoreProperties({"reservations","messages"})
-    private Client client;
+    private Client clients;
 
-    public Integer getIdReservation() {
-        return idReservation;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdReservation(Integer idReservation) {
-        this.idReservation = idReservation;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Date getStartDate() {
@@ -58,19 +60,19 @@ public class Reservation {
         this.status = status;
     }
 
-    public Machine getMachine() {
+    public Machine getMachines() {
         return machine;
     }
 
-    public void setMachine(Machine machine) {
-        this.machine = machine;
+    public void setMachines(Machine machines) {
+        this.machine = machines;
     }
 
-    public Client getClient() {
-        return client;
+    public Client getClients() {
+        return clients;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClients(Client clients) {
+        this.clients = clients;
     }
 }

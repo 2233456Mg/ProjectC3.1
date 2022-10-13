@@ -1,6 +1,6 @@
 package com.ciclo3.projectc3.Controller;
 
-import com.ciclo3.projectc3.Model.Client;
+import com.ciclo3.projectc3.Entities.Client;
 import com.ciclo3.projectc3.Service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

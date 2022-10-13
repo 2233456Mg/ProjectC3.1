@@ -1,7 +1,7 @@
 package com.ciclo3.projectc3.Service;
 
 
-import com.ciclo3.projectc3.Model.Client;
+import com.ciclo3.projectc3.Entities.Client;
 import com.ciclo3.projectc3.Repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,11 +24,11 @@ public class ClientService {
     }
 
     public Client save (Client client){
-        if (client.getIdClient() == null){
+        if (client.getId() == null){
             return clientRepository.save(client);
         } else {
-            Optional<Client> client1 = clientRepository.getClient(client.getIdClient());
-            if(client1.isEmpty()){
+            Optional<Client> client1 = clientRepository.getClient(client.getId());
+            if(client1.isPresent()){
                 return clientRepository.save(client);
             } else {
                 return client;

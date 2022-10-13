@@ -1,36 +1,37 @@
-package com.ciclo3.projectc3.Model;
+package com.ciclo3.projectc3.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "client")
-public class Client {
+public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idClient;
+    private Integer id;
     private String email;
     private String password;
     private String name;
     private Integer age;
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
-    @JsonIgnoreProperties("client")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "clients")
+    @JsonIgnoreProperties("clients")
     private List<Message> messages;
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
-    @JsonIgnoreProperties("client")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "clients")
+    @JsonIgnoreProperties("clients")
     private List<Reservation> reservations;
 
-    public Integer getIdClient() {
-        return idClient;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdClient(Integer idClient) {
-        this.idClient = idClient;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getEmail() {

@@ -1,10 +1,11 @@
-package com.ciclo3.projectc3.Model;
+package com.ciclo3.projectc3.Entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "admin")
-public class Admin {
+public class Admin implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,3 +46,4 @@ public class Admin {
         this.password = password;
     }
 }
+
