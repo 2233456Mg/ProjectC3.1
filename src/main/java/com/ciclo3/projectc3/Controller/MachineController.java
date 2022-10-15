@@ -19,13 +19,11 @@ public class MachineController {
     private MachineService machineService;
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
     public List<Machine> getAll(){
         return machineService.getAll();
     }
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
     public Optional<Machine> getMachine(@PathVariable("id") int id){
         return machineService.getMachine(id);
     }

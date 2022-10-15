@@ -19,13 +19,11 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
     public List<Category> getAll(){
         return categoryService.getAll();
     }
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
     public Optional<Category> getCategory(@PathVariable("id") int id){
         return categoryService.getCategory(id);
     }

@@ -18,13 +18,11 @@ public class MessageController {
     private MessageService messageService;
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
     public List<Message> getAll(){
         return messageService.getAll();
     }
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
     public Optional<Message> getMessage(@PathVariable("id") int id){
         return messageService.getMessage(id);
     }

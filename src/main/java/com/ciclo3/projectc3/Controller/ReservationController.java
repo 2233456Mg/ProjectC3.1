@@ -17,13 +17,11 @@ public class ReservationController {
     private ReservationService reservationService;
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
     public List<Reservation> getAll(){
         return reservationService.getAll();
     }
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
     public Optional<Reservation> getReservation(@PathVariable("id") int id){
         return reservationService.getReservation(id);
     }

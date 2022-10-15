@@ -17,13 +17,11 @@ public class AdminController {
     private AdminService adminService;
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
     public List<Admin> getAll(){
         return adminService.getAll();
     }
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
     public Optional<Admin> getAdmin(@PathVariable("id") int id){
         return adminService.getAdmin(id);
     }
