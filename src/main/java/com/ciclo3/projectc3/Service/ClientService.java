@@ -24,10 +24,10 @@ public class ClientService {
     }
 
     public Client save (Client client){
-        if (client.getId() == null){
+        if (client.getIdClient() == null){
             return clientRepository.save(client);
         } else {
-            Optional<Client> client1 = clientRepository.getClient(client.getId());
+            Optional<Client> client1 = clientRepository.getClient(client.getIdClient());
             if(client1.isPresent()){
                 return clientRepository.save(client);
             } else {

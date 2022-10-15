@@ -12,7 +12,7 @@ public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idClient;
     private String email;
     private String password;
     private String name;
@@ -26,12 +26,12 @@ public class Client implements Serializable {
     @JsonIgnoreProperties("clients")
     private List<Reservation> reservations;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdClient() {
+        return idClient;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdClient(Integer idClient) {
+        this.idClient = idClient;
     }
 
     public String getEmail() {
