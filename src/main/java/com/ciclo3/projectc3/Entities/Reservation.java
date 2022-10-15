@@ -12,7 +12,7 @@ public class Reservation implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idReservatiom;
     private Date startDate;
     private Date devolutionDate;
     private String status = "created";
@@ -29,11 +29,11 @@ public class Reservation implements Serializable {
 
 
     public Integer getId() {
-        return id;
+        return idReservatiom;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.idReservatiom = id;
     }
 
     public Date getStartDate() {
