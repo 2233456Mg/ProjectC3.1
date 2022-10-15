@@ -1,5 +1,7 @@
 package com.ciclo3.projectc3.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class Score {
     private Integer stars;
 
     @OneToOne
+    @JsonIgnoreProperties("score")
     private Reservation reservation;
 
     public Integer getIdScore() {
