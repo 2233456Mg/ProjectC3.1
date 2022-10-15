@@ -12,7 +12,7 @@ public class Reservation implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idReservatiom;
+    private Integer idReservation;
     private Date startDate;
     private Date devolutionDate;
     private String status = "created";
@@ -25,15 +25,14 @@ public class Reservation implements Serializable {
     @ManyToOne
     @JoinColumn(name = "clientId")
     @JsonIgnoreProperties({"reservations","messages"})
-    private Client clients;
+    private Client client;
 
-
-    public Integer getId() {
-        return idReservatiom;
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setId(Integer id) {
-        this.idReservatiom = id;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
     public Date getStartDate() {
@@ -60,19 +59,19 @@ public class Reservation implements Serializable {
         this.status = status;
     }
 
-    public Machine getMachines() {
+    public Machine getMachine() {
         return machine;
     }
 
-    public void setMachines(Machine machines) {
-        this.machine = machines;
+    public void setMachine(Machine machine) {
+        this.machine = machine;
     }
 
-    public Client getClients() {
-        return clients;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClients(Client clients) {
-        this.clients = clients;
+    public void setClient(Client client) {
+        this.client = client;
     }
 }
