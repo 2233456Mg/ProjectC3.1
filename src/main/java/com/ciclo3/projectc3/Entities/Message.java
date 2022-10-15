@@ -40,19 +40,19 @@ public class Message implements Serializable {
         this.messageText = messageText;
     }
 
-    public Machine getMachine() {
+    public Machine getMachines() {
         return machine;
     }
 
-    public void setMachine(Machine machine) {
-        this.machine = machine;
+    public void setMachines(Machine machines) {
+        this.machine = machines;
     }
 
-    public Client getClient() {
+    public Client getClients() {
         return client;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClients(Client clients) {
+        this.client = clients;
     }
 }
