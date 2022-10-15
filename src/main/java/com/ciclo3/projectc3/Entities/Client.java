@@ -20,11 +20,11 @@ public class Client implements Serializable {
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties("client")
-    private List<Message> messages;
+    private List<Message> message;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties("client")
-    private List<Reservation> reservations;
+    private List<Reservation> reservation;
 
     public Integer getIdClient() {
         return idClient;
@@ -67,18 +67,18 @@ public class Client implements Serializable {
     }
 
     public List<Message> getMessages() {
-        return messages;
+        return message;
     }
 
     public void setMessages(List<Message> messages) {
-        this.messages = messages;
+        this.message = messages;
     }
 
     public List<Reservation> getReservations() {
-        return reservations;
+        return reservation;
     }
 
     public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
+        this.reservation = reservations;
     }
 }
