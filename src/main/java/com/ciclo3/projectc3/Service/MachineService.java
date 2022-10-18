@@ -35,35 +35,41 @@ public class MachineService {
         }
     }
 
-    public Machine update(Machine machine){
-        if(machine.getId()!=null){
-            Optional<Machine> machine1 = machineRepository.getMachine(machine.getId());
-            if(machine1.isPresent()) {
-                if (machine.getName() != null) {
-                    machine1.get().setName(machine.getName());
+    public Machine update(Machine machine) {
+        if (machine.getId() != null) {
+            Optional<Machine> machineEncontrado = machineRepository.getMachine(machine.getId());
+            if(!machineEncontrado.isPresent()){
+                if(machine.getName() != null){
+                    machineEncontrado.get().setName((machine.getName()));
                 }
-                if (machine.getYear() != null) {
-                    machine1.get().setYear(machine.getYear());
+                if(machine.getBrand() != null){
+                    machineEncontrado.get().setBrand(machine.getBrand());
                 }
-                if (machine.getCategory() != null) {
-                    machine1.get().setCategory(machine.getCategory());
+                if(machine.getYear() != null){
+                    machineEncontrado.get().setYear((machine.getYear()));
                 }
-                machineRepository.save(machine1.get());
-                return machine1.get();
-            }else {
-                return machine;
+                if(machine.getDescription() != null){
+                    machineEncontrado.get().setDescription((machine.getDescription()));
+                }
+                if(machine.getCategory() != null){
+                    machineEncontrado.get().setCategory((machine.getCategory()));
+                }
+                machineRepository.save(machineEncontrado.get());
+                return machineEncontrado.get();
+            }else{
+                return  machine;
             }
-        }else return machine;
-    }
-    public boolean delete(int id){
-        boolean flag = false;
-        Optional<Machine> machine=machineRepository.getMachine(id);
-        if(machine.isPresent()) {
-            machineRepository.delete(machine.get());
-            flag = true;
+        }else {
+            return machine;
         }
-        return flag;
+    }
 
+    public boolean delete(int Id){
+        Boolean resultado = getMachine(Id).map(PorEliminar -> {
+            machineRepository.delete(PorEliminar);
+            return true;
+        }).orElse(false);
+        return resultado;
     }
 
 }

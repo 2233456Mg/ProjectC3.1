@@ -15,7 +15,7 @@ public class Machine implements Serializable {
     private Integer id;
     private String name;
     private String brand;
-    @Column(name = "yearp")
+    @Column(name = "years")
     private Integer year;
     private String description;
 

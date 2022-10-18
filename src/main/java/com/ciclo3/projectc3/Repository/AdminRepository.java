@@ -26,5 +26,4 @@ public class AdminRepository {
         return adminCrudRepository.save(admin);
     }
 
-
 }
